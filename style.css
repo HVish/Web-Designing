@@ -1,0 +1,85 @@
+*{
+		margin: 0;
+		padding: 0;
+	}
+	@keyframes blur {
+	     0%   {text-shadow: none;}
+	    50%  {text-shadow: 5px 3px 8px#ccc;}
+	    100% {text-shadow: none;}
+	 }
+	@keyframes circle-colors {
+	     0%   {border-color: #98FF9B;}
+	    25%  {border-color: #FFD96D;}
+	    50%  {border-color: #FF6D6D;}
+	    100% {border-color: #6DF8FF;}
+	 }
+	 @keyframes beats {
+	     0% {transform: scale(1);    box-shadow: 0px 0px 150px #ccc;}
+    	 50% {transform: scale(1.30);    box-shadow: 0px 0px 50px #ccc;}
+		 100% {transform: scale(1);     box-shadow: 0px 0px 150px #ccc;}
+	 }
+	head,title{
+		display: block;
+		position: relative;
+	}
+	title{
+		position: absolute;
+		top: 200px;
+		font-size: 30px;
+		color: #fff;
+		left: 700px;
+		animation-name: blur;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		text-shadow: 5px 5px 5px#ccc;		
+	}
+	html{
+		background: #222;
+		height: 100vh;
+	}
+	head{
+		position: relative;
+	}
+	head::before,head::after,body::before,body::after,title::before,title::after,html::before,html::after{
+		content: "";
+		width: 200px;	
+		height: 200px;
+		border: 10px solid #fff;
+		border-radius: 50%;
+		position: absolute;
+		box-sizing: border-box;
+		animation-name: circle-colors;
+    	animation-duration: 2s;
+		animation-iteration-count: infinite;
+	}
+	head::after{
+		left: 125px;
+	}
+	body::before{
+		left: 250px;
+	}
+	body::after{
+		left: 375px;
+	}
+	title::before{
+		top: -60px;
+    	left: -575px;
+	}
+	title::after{
+		top: -60px;
+    	left: -450px;
+	}
+	html::before{
+		top: 265px;
+    	left: 190px;
+	}
+	html::after{
+		top: 115px;
+    	left: 685px;
+		transform: scale(1);
+		animation-name: beats, circle-colors;
+		box-shadow: 0px 0px 50px #ccc;
+    	animation-duration: 2s;
+		animation-iteration-count: infinite;
+	}
+	
